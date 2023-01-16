@@ -27,13 +27,15 @@ export default{
     :title="movieEl.title"
     :originalTitle="movieEl.original_title"
     :originalLanguage="movieEl.original_language"
-    :avarageVote="movieEl.vote_average" />
+    :avarageVote="movieEl.vote_average"
+    :moviePosterPartialPath="movieEl.poster_path" />
 
     <CompCardTvSeries v-for="tvSeriesEl in store.tvSeriesList"
     :tvSeriesTitle="tvSeriesEl.name"
     :tvSeriesOriginalTitle="tvSeriesEl.original_name"
     :tvSeriesOriginalLanguage="tvSeriesEl.original_language"
-    :tvSeriesAvarageVote="tvSeriesEl.vote_avarage" />
+    :tvSeriesAvarageVote="tvSeriesEl.vote_avarage"
+    :tvSeriesPosterPartialPath="tvSeriesEl.poster_path" />
   </main>
 </template>
 

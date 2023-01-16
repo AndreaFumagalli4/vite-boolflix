@@ -7,7 +7,14 @@ export default{
     tvSeriesTitle: String,
     tvSeriesOriginalTitle: String,
     tvSeriesOriginalLanguage: String,
-    tvSeriesAvarageVote: Number
+    tvSeriesAvarageVote: Number,
+    tvSeriesPosterPartialPath: String
+  },
+
+  data() {
+    return {
+      imagePartialPath: 'https://image.tmdb.org/t/p/w342',
+    }
   },
 
   methods: {
@@ -19,19 +26,24 @@ export default{
 </script>
 
 <template>
-  <h3>
-    {{ tvSeriesTitle }}
-  </h3>
-  <h5>
-    {{ tvSeriesOriginalTitle }}
-  </h5>
   <div>
-    <span>Language: </span>
-    <img :src="getImagePath(tvSeriesOriginalLanguage)" :alt="tvSeriesOriginalLanguage">
+    <div>
+      <img :src="`${imagePartialPath}${tvSeriesPosterPartialPath}`" :alt="`${tvSeriesTitle}`">
+    </div>
+    <h3>
+      {{ tvSeriesTitle }}
+    </h3>
+    <h5>
+      {{ tvSeriesOriginalTitle }}
+    </h5>
+    <div>
+      <span>Language: </span>
+      <img :src="getImagePath(tvSeriesOriginalLanguage)" :alt="tvSeriesOriginalLanguage">
+    </div>
+    <p>
+      Vote: {{ tvSeriesAvarageVote }}
+    </p>
   </div>
-  <p>
-    {{ tvSeriesAvarageVote }}
-  </p>
 </template>
 
 <style lang="scss" scoped>
