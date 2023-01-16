@@ -14,12 +14,12 @@ export default{
   },
 
   methods: {
-    getMovies() {
+    getMovies(searchedQuery) {
       // Chiamata axios
       axios.get( this.apiUri, {
           params: {
             api_key: this.apiKey,
-            query: 'Pirati'
+            query: searchedQuery
           }
         })
         .then((response) => {
@@ -33,7 +33,7 @@ export default{
   },
 
   created(){
-    this.getMovies();
+    // this.getMovies();
   }
 }
 </script>
@@ -43,8 +43,24 @@ export default{
     <label for="searched-movie">
       Write query:
     </label>
-    <input type="text" id="searched-movie">
-    <button>Search</button>
+    <input type="text" id="searched-movie" v-model="searchedQuery">
+    <button @click="getMovies(searchedQuery)">Search</button>
+
+    <ul>
+      <li v-for="movieEl in store.moviesList">
+        <h3>
+          {{ movieEl.title }}
+        </h3>
+        <h5>
+          {{ movieEl.original_title }}
+        </h5>
+        <p>
+          Language: {{ movieEl.original_language }}
+          <br>
+          Vote: {{ movieEl.vote_average }}
+        </p>
+      </li>
+    </ul>
   </header>
 </template>
 

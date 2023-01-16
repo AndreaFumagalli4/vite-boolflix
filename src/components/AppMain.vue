@@ -1,4 +1,5 @@
 <script>
+// Importare store
 
 export default{
   name: 'AppMain'
