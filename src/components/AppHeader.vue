@@ -9,7 +9,8 @@ export default{
     return {
       store,
       apiKey: '27a5ddd7ce822efc0bc88cd25fbe4c09',
-      apiUri: 'https://api.themoviedb.org/3/search/movie'
+      apiUri: 'https://api.themoviedb.org/3/search/movie',
+      searchedQuery: ''
     }
   },
 
@@ -30,10 +31,6 @@ export default{
           console.warn(error);
         })
       }
-  },
-
-  created(){
-    // this.getMovies();
   }
 }
 </script>
@@ -41,7 +38,7 @@ export default{
 <template>
   <header>
     <label for="searched-movie">
-      Write query:
+      Search movie:
     </label>
     <input type="text" id="searched-movie" v-model="searchedQuery">
     <button @click="getMovies(searchedQuery)">Search</button>
@@ -54,9 +51,15 @@ export default{
         <h5>
           {{ movieEl.original_title }}
         </h5>
+        <div v-if="(movieEl.original_language === 'en')">
+          <img src="../assets/img/united-states(1).png" alt="USA flag">
+        </div>
+        <div v-else>
+          <p>
+            Language: {{ movieEl.original_language }}
+          </p>
+        </div>
         <p>
-          Language: {{ movieEl.original_language }}
-          <br>
           Vote: {{ movieEl.vote_average }}
         </p>
       </li>
