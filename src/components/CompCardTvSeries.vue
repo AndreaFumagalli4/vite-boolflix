@@ -7,7 +7,7 @@ export default{
     tvSeriesTitle: String,
     tvSeriesOriginalTitle: String,
     tvSeriesOriginalLanguage: String,
-    tvSeriesAvarageVote: Number,
+    tvSeriesAverageVote: Number,
     tvSeriesPosterPartialPath: String
   },
 
@@ -41,8 +41,10 @@ export default{
       <img :src="getImagePath(tvSeriesOriginalLanguage)" :alt="tvSeriesOriginalLanguage">
     </div>
     <p>
-      Vote: {{ tvSeriesAvarageVote }}
+      Vote: {{ tvSeriesAverageVote }}
     </p>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-regular fa-star"></i>
   </div>
 </template>
 

@@ -7,7 +7,7 @@ export default{
     title: String,
     originalTitle: String,
     originalLanguage: String,
-    avarageVote: Number,
+    averageVote: Number,
     moviePosterPartialPath: String
   },
 
@@ -41,8 +41,10 @@ export default{
       <img :src="getImagePath(originalLanguage)" :alt="originalLanguage">
     </div>
     <p>
-      Vote: {{ avarageVote }}
+      Vote: {{ averageVote }}
     </p>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-regular fa-star"></i>
   </div>
 </template>
 
