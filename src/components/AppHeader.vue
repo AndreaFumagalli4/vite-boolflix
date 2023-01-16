@@ -52,7 +52,7 @@ export default{
           {{ movieEl.original_title }}
         </h5>
         <div v-if="(movieEl.original_language === 'en')">
-          <img src="../assets/img/united-states(1).png" alt="USA flag">
+          <img src="../assets/img/us.png" alt="USA flag">
         </div>
         <div v-else>
           <p>
