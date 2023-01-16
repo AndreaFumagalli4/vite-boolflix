@@ -30,7 +30,11 @@ export default{
         .catch(function (error) {
           console.warn(error);
         })
-      }
+      },
+
+      getImagePath: function(imgPath) {
+            return new URL(`../assets/img/${imgPath}.png`, import.meta.url).href;
+        }
   }
 }
 </script>
@@ -51,13 +55,8 @@ export default{
         <h5>
           {{ movieEl.original_title }}
         </h5>
-        <div v-if="(movieEl.original_language === 'en')">
-          <img src="../assets/img/us.png" alt="USA flag">
-        </div>
-        <div v-else>
-          <p>
-            Language: {{ movieEl.original_language }}
-          </p>
+        <div>
+          <img :src="getImagePath(movieEl.original_language)" :alt="movieEl.original_language">
         </div>
         <p>
           Vote: {{ movieEl.vote_average }}
