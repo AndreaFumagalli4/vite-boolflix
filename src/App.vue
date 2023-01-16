@@ -14,16 +14,12 @@ export default{
 
 <template>
 
-  <header>
     <AppHeader />
-  </header>
-
-  <main>
     <AppMain />
-  </main>
+    
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use './styles/general.scss' as *;
 @use './styles/partials/variables' as *;
 
