@@ -43,8 +43,8 @@ export default{
     <p>
       Vote: {{ averageVote }}
     </p>
-    <i class="fa-solid fa-star"></i>
-    <i class="fa-regular fa-star"></i>
+    <i v-for=" in averageVote" class="fa-solid fa-star"></i>
+    <i v-for=" in (5 - averageVote)" class="fa-regular fa-star"></i>
   </div>
 </template>
 
