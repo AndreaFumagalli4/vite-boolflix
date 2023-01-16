@@ -41,10 +41,10 @@ export default{
       <img :src="getImagePath(originalLanguage)" :alt="originalLanguage">
     </div>
     <p>
-      Vote: {{ averageVote }}
+      Vote: {{ Math.ceil(averageVote / 2) }}
     </p>
-    <i v-for=" in averageVote" class="fa-solid fa-star"></i>
-    <i v-for=" in (5 - averageVote)" class="fa-regular fa-star"></i>
+    <i v-for=" in Math.ceil(averageVote / 2)" class="fa-solid fa-star"></i>
+    <i v-for=" in (5 - Math.ceil(averageVote / 2))" class="fa-regular fa-star"></i>
   </div>
 </template>
 
