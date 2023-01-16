@@ -1,6 +1,5 @@
 <script>
 import { store } from '../store';
-import axios from 'axios';
 
 export default{
   name: 'AppHeader',
@@ -8,33 +7,7 @@ export default{
   data() {
     return {
       store,
-      apiKey: '27a5ddd7ce822efc0bc88cd25fbe4c09',
-      apiUri: 'https://api.themoviedb.org/3/search/movie',
-      searchedQuery: ''
     }
-  },
-
-  methods: {
-    getMovies(searchedQuery) {
-      // Chiamata axios
-      axios.get( this.apiUri, {
-          params: {
-            api_key: this.apiKey,
-            query: searchedQuery
-          }
-        })
-        .then((response) => {
-          console.log(response.data.results);
-          this.store.moviesList = response.data.results;
-        })
-        .catch(function (error) {
-          console.warn(error);
-        })
-      },
-
-      getImagePath: function(imgPath) {
-            return new URL(`../assets/img/${imgPath}.png`, import.meta.url).href;
-        }
   }
 }
 </script>
@@ -44,25 +17,10 @@ export default{
     <label for="searched-movie">
       Search movie:
     </label>
-    <input type="text" id="searched-movie" v-model="searchedQuery">
-    <button @click="getMovies(searchedQuery)">Search</button>
-
-    <ul>
-      <li v-for="movieEl in store.moviesList">
-        <h3>
-          {{ movieEl.title }}
-        </h3>
-        <h5>
-          {{ movieEl.original_title }}
-        </h5>
-        <div>
-          <img :src="getImagePath(movieEl.original_language)" :alt="movieEl.original_language">
-        </div>
-        <p>
-          Vote: {{ movieEl.vote_average }}
-        </p>
-      </li>
-    </ul>
+    <input type="text" id="searched-movie" v-model="store.searchedQuery">
+    <button @click="$emit('search', store.searchedQuery)">
+      Search
+    </button>
   </header>
 </template>
 
