@@ -1,13 +1,15 @@
 <script>
 import { store } from '../store';
 
-import CompCard from './CompCard.vue';
+import CompCardMovie from './CompCardMovie.vue';
+import CompCardTvSeries from './CompCardTvSeries.vue';
 
 export default{
   name: 'AppMain',
 
   components:{
-    CompCard,
+    CompCardMovie,
+    CompCardTvSeries
   },
 
   data() {
@@ -21,11 +23,17 @@ export default{
 
 <template>
   <main>
-    <CompCard v-for="movieEl in store.moviesList"
+    <CompCardMovie v-for="movieEl in store.moviesList"
     :title="movieEl.title"
     :originalTitle="movieEl.original_title"
     :originalLanguage="movieEl.original_language"
-    :avarageVote="movieEl.vote_average"/>
+    :avarageVote="movieEl.vote_average" />
+
+    <CompCardTvSeries v-for="tvSeriesEl in store.tvSeriesList"
+    :tvSeriesTitle="tvSeriesEl.name"
+    :tvSeriesOriginalTitle="tvSeriesEl.original_name"
+    :tvSeriesOriginalLanguage="tvSeriesEl.original_language"
+    :tvSeriesAvarageVote="tvSeriesEl.vote_avarage" />
   </main>
 </template>
 

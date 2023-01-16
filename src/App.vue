@@ -17,14 +17,15 @@ export default{
     return {
       store,
       apiKey: '27a5ddd7ce822efc0bc88cd25fbe4c09',
-      apiUri: 'https://api.themoviedb.org/3/search/movie',
+      movieApiUri: 'https://api.themoviedb.org/3/search/movie',
+      tvSeriesApiUri: 'https://api.themoviedb.org/3/search/tv'
     }
   },
 
   methods: {
-    getMovies(searchedQuery) {
+    getMoviesAndTvSeries(searchedQuery) {
 
-      axios.get( this.apiUri, {
+      axios.get( this.movieApiUri, {
           params: {
             api_key: this.apiKey,
             query: searchedQuery
@@ -36,14 +37,29 @@ export default{
         })
         .catch(function (error) {
           console.warn(error);
+        });
+
+        axios.get( this.tvSeriesApiUri, {
+          params: {
+            api_key: this.apiKey,
+            query: searchedQuery
+          }
         })
-      }
+        .then((response) => {
+          console.log(response.data.results);
+          this.store.tvSeriesList = response.data.results;
+        })
+        .catch(function (error) {
+          console.warn(error);
+        })
+
+      },
   }
 }
 </script>
 
 <template>
-    <AppHeader @search="getMovies"/>
+    <AppHeader @search="getMoviesAndTvSeries"/>
     <AppMain />
 </template>
 

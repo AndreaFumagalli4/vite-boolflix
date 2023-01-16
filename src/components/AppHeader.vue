@@ -14,10 +14,10 @@ export default{
 
 <template>
   <header>
-    <label for="searched-movie">
-      Search movie:
+    <label for="searched-movie-tv-series">
+      Search movies and TV series:
     </label>
-    <input type="text" id="searched-movie" v-model="store.searchedQuery">
+    <input type="text" id="searched-movie-tv-series" v-model="store.searchedQuery">
     <button @click="$emit('search', store.searchedQuery)">
       Search
     </button>

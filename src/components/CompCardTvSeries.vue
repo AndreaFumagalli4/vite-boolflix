@@ -1,20 +1,13 @@
 <script>
-import { store } from '../store';
 
 export default{
-  name: 'CompCard',
+  name: 'CompCardTvSeries',
 
   props: {
-    title: String,
-    originalTitle: String,
-    originalLanguage: String,
-    avarageVote: Number
-  },
-
-  data() {
-    return {
-      store,
-    }
+    tvSeriesTitle: String,
+    tvSeriesOriginalTitle: String,
+    tvSeriesOriginalLanguage: String,
+    tvSeriesAvarageVote: Number
   },
 
   methods: {
@@ -27,17 +20,17 @@ export default{
 
 <template>
   <h3>
-    {{ title }}
+    {{ tvSeriesTitle }}
   </h3>
   <h5>
-    {{ originalTitle }}
+    {{ tvSeriesOriginalTitle }}
   </h5>
   <div>
     <span>Language: </span>
-    <img :src="getImagePath(originalLanguage)" :alt="originalLanguage">
+    <img :src="getImagePath(tvSeriesOriginalLanguage)" :alt="tvSeriesOriginalLanguage">
   </div>
   <p>
-    {{ avarageVote }}
+    {{ tvSeriesAvarageVote }}
   </p>
 </template>
 
