@@ -23,13 +23,18 @@ export default{
 
 <template>
   <main>
+    <h2>
+      Movies:
+    </h2>
     <CompCardMovie v-for="movieEl in store.moviesList"
     :title="movieEl.title"
     :originalTitle="movieEl.original_title"
     :originalLanguage="movieEl.original_language"
     :averageVote="movieEl.vote_average"
     :moviePosterPartialPath="movieEl.poster_path" />
-
+    <h2>
+      TV Series:
+    </h2>
     <CompCardTvSeries v-for="tvSeriesEl in store.tvSeriesList"
     :tvSeriesTitle="tvSeriesEl.name"
     :tvSeriesOriginalTitle="tvSeriesEl.original_name"

@@ -18,7 +18,7 @@ export default{
       Search movies and TV series:
     </label>
     <input type="text" id="searched-movie-tv-series" v-model="store.searchedQuery">
-    <button @click="$emit('search', store.searchedQuery)">
+    <button class="btn" @click="$emit('search', store.searchedQuery)">
       Search
     </button>
   </header>

@@ -24,36 +24,35 @@ export default{
 
   methods: {
     getMoviesAndTvSeries(searchedQuery) {
-
+      // Chiamata axios Movies
       axios.get( this.movieApiUri, {
-          params: {
-            api_key: this.apiKey,
-            query: searchedQuery
-          }
-        })
-        .then((response) => {
-          console.log(response.data.results);
-          this.store.moviesList = response.data.results;
-        })
-        .catch(function (error) {
-          console.warn(error);
-        });
-
-        axios.get( this.tvSeriesApiUri, {
-          params: {
-            api_key: this.apiKey,
-            query: searchedQuery
-          }
-        })
-        .then((response) => {
-          console.log(response.data.results);
-          this.store.tvSeriesList = response.data.results;
-        })
-        .catch(function (error) {
-          console.warn(error);
-        })
-
-      },
+        params: {
+          api_key: this.apiKey,
+          query: searchedQuery
+        }
+      })
+      .then((response) => {
+        console.log(response.data.results);
+        this.store.moviesList = response.data.results;
+      })
+      .catch(function (error) {
+        console.warn(error);
+      });
+      // Chiamata axios TV Series
+      axios.get( this.tvSeriesApiUri, {
+        params: {
+          api_key: this.apiKey,
+          query: searchedQuery
+        }
+      })
+      .then((response) => {
+        console.log(response.data.results);
+        this.store.tvSeriesList = response.data.results;
+      })
+      .catch(function (error) {
+        console.warn(error);
+      })
+    },
   }
 }
 </script>
