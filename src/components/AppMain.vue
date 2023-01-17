@@ -26,7 +26,7 @@ export default{
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <h2>
+          <h2 class="mb-5">
             Movies:
           </h2>
         </div>
@@ -37,11 +37,12 @@ export default{
         :originalTitle="movieEl.original_title"
         :originalLanguage="movieEl.original_language"
         :averageVote="movieEl.vote_average"
-        :moviePosterPartialPath="movieEl.poster_path" />
+        :moviePosterPartialPath="movieEl.poster_path"
+        :movieOverview="movieEl.overview" />
       </div>
       <div class="row">
         <div class="col-12">
-          <h2>
+          <h2 class="mb-5">
             TV Series:
           </h2>
         </div>
@@ -52,7 +53,8 @@ export default{
         :tvSeriesOriginalTitle="tvSeriesEl.original_name"
         :tvSeriesOriginalLanguage="tvSeriesEl.original_language"
         :tvSeriesAverageVote="tvSeriesEl.vote_average"
-        :tvSeriesPosterPartialPath="tvSeriesEl.poster_path" />
+        :tvSeriesPosterPartialPath="tvSeriesEl.poster_path"
+        :tvSeriesOverview="tvSeriesEl.overview" />
       </div>
     </div>
   </main>

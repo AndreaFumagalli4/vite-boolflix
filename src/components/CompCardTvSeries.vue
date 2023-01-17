@@ -8,7 +8,8 @@ export default{
     tvSeriesOriginalTitle: String,
     tvSeriesOriginalLanguage: String,
     tvSeriesAverageVote: Number,
-    tvSeriesPosterPartialPath: String
+    tvSeriesPosterPartialPath: String,
+    tvSeriesOverview: String
   },
 
   data() {
@@ -26,38 +27,55 @@ export default{
 </script>
 
 <template>
-  <div class="col-2 p-0">
+  <div id="tv_series" class="col-2 p-0">
     <section class="cover_image">
       <img :src="`${imagePartialPath}${tvSeriesPosterPartialPath}`" :alt="`${tvSeriesTitle}`">
     </section>
     <section class="tv_series_info d-none">
-      <h3>
-        {{ tvSeriesTitle }}
-      </h3>
-      <h5>
-        {{ tvSeriesOriginalTitle }}
-      </h5>
-      <div>
+      <p>
+        <span>Title: </span> {{ tvSeriesTitle }}
+      </p>
+      <p>
+        <span>Original title: </span> {{ tvSeriesOriginalTitle }}
+      </p>
+      <p>
         <span>Language: </span>
         <img :src="getImagePath(tvSeriesOriginalLanguage)" :alt="tvSeriesOriginalLanguage">
-      </div>
-      <p>
-        Vote: {{ Math.ceil(tvSeriesAverageVote / 2) }}
       </p>
-      <i v-for=" in Math.ceil(tvSeriesAverageVote / 2)" class="fa-solid fa-star"></i>
-      <i v-for=" in (5 - Math.ceil(tvSeriesAverageVote / 2))" class="fa-regular fa-star"></i>
+      <p>
+        <span>Vote: </span>
+        <i v-for=" in Math.ceil(tvSeriesAverageVote / 2)" class="fa-solid fa-star"></i>
+        <i v-for=" in (5 - Math.ceil(tvSeriesAverageVote / 2))" class="fa-regular fa-star"></i>
+      </p>
+      <p>
+        <span>Overview: </span> {{ tvSeriesOverview }}
+      </p>
     </section>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  section.cover_image {
-    width: 100%;
-    height: 300px;
 
-    img {
+  div#tv_series {
+    margin-bottom: 4rem;
+    font-size: .8rem;
+
+    section.cover_image {
       width: 100%;
-      height: 100%;
+      height: 300px;
+  
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    p {
+      margin-bottom: .3rem;
+
+      span {
+        font-weight: 700;
+      }
     }
   }
 </style>
