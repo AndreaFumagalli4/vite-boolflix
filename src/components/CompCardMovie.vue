@@ -15,6 +15,7 @@ export default{
   data() {
     return {
       imagePartialPath: 'https://image.tmdb.org/t/p/w342',
+      presentFlags: ['de', 'en', 'es', 'fr', 'it', 'ja', 'us']
     }
   },
 
@@ -40,7 +41,10 @@ export default{
       </p>
       <p>
         <span>Language: </span>
-        <img :src="getImagePath(originalLanguage)" :alt="originalLanguage">
+        <img v-if="presentFlags.includes(originalLanguage)" :src="getImagePath(originalLanguage)" alt="Country Flag">
+        <span v-else class="language">
+          {{ originalLanguage }}
+        </span>
       </p>
       <p>
         <span>Vote: </span>
@@ -75,6 +79,10 @@ export default{
 
       span {
         font-weight: 700;
+      }
+
+      i {
+        color: yellow;
       }
     }
   }

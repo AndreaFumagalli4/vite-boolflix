@@ -76,6 +76,10 @@ export default{
       span {
         font-weight: 700;
       }
+
+      i {
+        color: yellow;
+      }
     }
   }
 
