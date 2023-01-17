@@ -38,6 +38,7 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
 
   img {
     width: 100px;
@@ -53,5 +54,21 @@ export default{
       padding: 0 .5rem;
     }
   }
+
+  input {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+  }
+
+  button {
+    margin-left: .5rem;
+    border: 1px solid $main-color;
+    padding: .1rem 1rem;
+    border-radius: 2rem;
+    color: white;
+    background-color: black;
+  }
+
 
 </style>
