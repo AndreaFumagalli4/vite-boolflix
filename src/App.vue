@@ -56,7 +56,7 @@ export default{
   },
 
   created() {
-    this.getMoviesAndTvSeries('netflix');
+    this.getMoviesAndTvSeries('avengers');
   }
 }
 </script>

@@ -26,7 +26,7 @@ export default{
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <h2 class="mb-5">
+          <h2 class="mb-5 fs-5">
             Movies:
           </h2>
         </div>
@@ -42,7 +42,7 @@ export default{
       </div>
       <div class="row">
         <div class="col-12">
-          <h2 class="mb-5">
+          <h2 class="mb-5 fs-5">
             TV Series:
           </h2>
         </div>
