@@ -53,6 +53,10 @@ export default{
         console.warn(error);
       })
     },
+  },
+
+  created() {
+    this.getMoviesAndTvSeries('netflix');
   }
 }
 </script>
