@@ -27,7 +27,7 @@ export default{
 </script>
 
 <template>
-  <div id="movie" class="col-2 p-0">
+  <div id="movie" class="col-2 px-2">
     <section class="cover_image">
       <img :src="`${imagePartialPath}${moviePosterPartialPath}`" :alt="`${title}`">
     </section>
@@ -79,7 +79,15 @@ export default{
     }
   }
 
-  // div#movie:hover {
-  //   display: none;
-  // }
+  section.movie_info {
+    display: none;
+  }
+
+  div#movie:hover .cover_image {
+    display: none;
+  }
+
+  div#movie:hover .movie_info {
+    display: block;
+  }
 </style>

@@ -31,7 +31,7 @@ export default{
     <section class="cover_image">
       <img :src="`${imagePartialPath}${tvSeriesPosterPartialPath}`" :alt="`${tvSeriesTitle}`">
     </section>
-    <section class="tv_series_info d-none">
+    <section class="tv_series_info">
       <p>
         <span>Title: </span> {{ tvSeriesTitle }}
       </p>
@@ -77,5 +77,17 @@ export default{
         font-weight: 700;
       }
     }
+  }
+
+  section.tv_series_info {
+    display: none;
+  }
+
+  div#tv_series:hover .cover_image {
+    display: none;
+  }
+
+  div#tv_series:hover .tv_series_info {
+    display: block;
   }
 </style>
