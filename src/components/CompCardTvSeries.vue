@@ -27,11 +27,11 @@ export default{
 </script>
 
 <template>
-  <div id="tv_series" class="col-2 p-0">
+  <div id="tv_series" class="col-2 px-2">
     <section class="cover_image">
       <img :src="`${imagePartialPath}${tvSeriesPosterPartialPath}`" :alt="`${tvSeriesTitle}`">
     </section>
-    <section class="tv_series_info">
+    <section class="tv_series_info p-2">
       <p>
         <span>Title: </span> {{ tvSeriesTitle }}
       </p>
@@ -81,6 +81,9 @@ export default{
 
   section.tv_series_info {
     display: none;
+    transition: transform 1s;
+    height: 300px;
+    overflow: hidden;
   }
 
   div#tv_series:hover .cover_image {
@@ -89,5 +92,10 @@ export default{
 
   div#tv_series:hover .tv_series_info {
     display: block;
+    background-color: black;
+    border-radius: 20px;
+    transform: scale(1.2);
+    z-index: 1;
+    border: 1px solid white;
   }
 </style>

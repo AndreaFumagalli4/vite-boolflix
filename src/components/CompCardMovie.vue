@@ -31,7 +31,7 @@ export default{
     <section class="cover_image">
       <img :src="`${imagePartialPath}${moviePosterPartialPath}`" :alt="`${title}`">
     </section>
-    <section class="movie_info">
+    <section class="movie_info p-2">
       <p>
         <span>Title: </span> {{ title }}
       </p>
@@ -81,6 +81,9 @@ export default{
 
   section.movie_info {
     display: none;
+    transition: transform 1s;
+    height: 300px;
+    overflow: hidden;
   }
 
   div#movie:hover .cover_image {
@@ -89,5 +92,10 @@ export default{
 
   div#movie:hover .movie_info {
     display: block;
+    background-color: black;
+    border-radius: 20px;
+    transform: scale(1.2);
+    z-index: 1;
+    border: 1px solid white;
   }
 </style>
