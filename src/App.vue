@@ -63,6 +63,7 @@ export default{
 </template>
 
 <style lang="scss">
+@use '../node_modules/bootstrap' as *;
 @use './styles/general.scss' as *;
 @use './styles/partials/variables' as *;
 

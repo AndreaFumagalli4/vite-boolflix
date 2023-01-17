@@ -10,4 +10,16 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+}
+
+a {
+    color: rgba(245, 238, 238, 0.794);
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
 }

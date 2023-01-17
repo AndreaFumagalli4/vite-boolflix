@@ -7,6 +7,7 @@ export default{
   data() {
     return {
       store,
+      headList: ['Home', 'SerieTV', 'Film', 'Originali', 'Aggiunti di recente', 'La mia lista'],
     }
   }
 }
@@ -14,19 +15,43 @@ export default{
 
 <template>
   <header>
-    <label for="searched-movie-tv-series">
-      Search movies and TV series:
-    </label>
-    <input type="text" id="searched-movie-tv-series" v-model="store.searchedQuery">
-    <button class="btn" @click="$emit('search', store.searchedQuery)">
-      Search
-    </button>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 d-flex align-items-center">
+          <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="Netflix logo">
+          <ul class="d-flex">
+            <li v-for="listEl in headList">
+              <a href="#">{{ listEl }}</a>
+            </li>
+          </ul>
+          <div class="input-group-small ms-auto">
+            <input type="text" id="searched-movie-tv-series" v-model="store.searchedQuery">
+          </div>
+          <button @click="$emit('search', store.searchedQuery)">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    
   </header>
 </template>
 
 <style lang="scss" scoped>
 
-  button {
-    margin-left: 1rem;
+  img {
+    width: 100px;
+    height: 30px
   }
+
+  ul{
+    list-style-type: none;
+    margin: 0;
+    
+    li {
+      font-size: .75rem;
+      padding: 0 .5rem;
+    }
+  }
+
 </style>
